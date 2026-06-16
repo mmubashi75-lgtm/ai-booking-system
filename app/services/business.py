@@ -1,13 +1,12 @@
-from app.database import get_db
-from app.models import BusinessCreate, BusinessResponse
-from supabase import Client
 from datetime import datetime
+from app.database import get_db
+from supabase import Client
 
 class BusinessService:
     """Service for business operations"""
     
     @staticmethod
-    async def create_business(business: BusinessCreate, db: Client) -> dict:
+    async def create_business(business, db: Client) -> dict:
         """Create a new business"""
         try:
             response = db.table("businesses").insert({

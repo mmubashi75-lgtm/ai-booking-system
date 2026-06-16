@@ -2,11 +2,11 @@
 
 A comprehensive, AI-powered booking system built with Python and FastAPI, designed specifically for small businesses. Features intelligent scheduling, natural language processing for booking queries, and automated notifications.
 
-## Features
+## ✨ Features
 
-✨ **Core Features**
+### 📋 Core Features
 - 📅 Calendar management with staff availability
-- 🗓️ Appointment scheduling and management
+- 📝 Appointment scheduling and management
 - 💳 Payment processing with Stripe integration
 - 🔔 Automated email confirmations and reminders
 - 🤖 AI-powered chatbot for natural language booking queries
@@ -14,7 +14,7 @@ A comprehensive, AI-powered booking system built with Python and FastAPI, design
 - 👥 Multi-staff and multi-service support
 - 🔐 User authentication and authorization
 
-🧠 **AI Capabilities**
+### 🧠 AI Capabilities
 - Natural language booking queries ("I need a haircut on Monday morning")
 - Intelligent availability suggestions
 - Conversation-based booking assistance
@@ -22,7 +22,7 @@ A comprehensive, AI-powered booking system built with Python and FastAPI, design
 - Automated booking detail extraction
 - Availability slot ranking
 
-## Tech Stack
+## 🛠 Tech Stack
 
 - **Backend**: FastAPI, Python 3.11
 - **Database**: Supabase (PostgreSQL)
@@ -31,7 +31,7 @@ A comprehensive, AI-powered booking system built with Python and FastAPI, design
 - **Email**: SMTP (Gmail)
 - **Deployment**: Docker, Docker Compose
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 ai-booking-system/
@@ -43,6 +43,7 @@ ai-booking-system/
 │   │   ├── bookings.py        # Booking operations
 │   │   ├── payments.py        # Payment processing
 │   │   ├── availability.py    # Availability management
+│   │   ├── business.py        # Business management
 │   │   └── ai.py              # AI endpoints
 │   ├── services/
 │   │   ├── ai.py              # AI service with OpenAI
@@ -64,7 +65,7 @@ ai-booking-system/
 └── README.md                  # This file
 ```
 
-## Quick Start
+## 🚀 Quick Start
 
 ### Prerequisites
 - Python 3.11+
@@ -110,7 +111,7 @@ The API will be available at `http://localhost:8000`
 docker-compose up --build
 ```
 
-## API Endpoints
+## 📚 API Endpoints
 
 ### Authentication
 - `POST /api/users/register` - Register new user
@@ -153,6 +154,13 @@ docker-compose up --build
 - `POST /api/payments/{payment_id}/refund` - Refund payment
 - `GET /api/payments/business/{business_id}/revenue` - Get revenue
 
+### Business Management
+- `POST /api/business/` - Create business
+- `GET /api/business/{business_id}` - Get business details
+- `PUT /api/business/{business_id}` - Update business
+- `GET /api/business/owner/{owner_id}` - Get owner's businesses
+- `GET /api/business/{business_id}/stats` - Get business statistics
+
 ### AI
 - `POST /api/ai/process-booking-query` - Process natural language query
 - `POST /api/ai/chat` - Chat with AI assistant
@@ -160,7 +168,7 @@ docker-compose up --build
 - `GET /api/ai/business/{business_id}/analytics` - Business insights
 - `POST /api/ai/extract-booking-details` - Extract booking details
 
-## Environment Variables
+## 🔧 Environment Variables
 
 ```env
 # Supabase
@@ -188,7 +196,7 @@ API_URL=http://localhost:8000
 FRONTEND_URL=http://localhost:3000
 ```
 
-## Usage Examples
+## 📝 Usage Examples
 
 ### Register a User
 ```bash
@@ -198,6 +206,21 @@ curl -X POST "http://localhost:8000/api/users/register" \
     "email": "user@example.com",
     "name": "John Doe",
     "password": "secure_password"
+  }'
+```
+
+### Create a Business
+```bash
+curl -X POST "http://localhost:8000/api/business/" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "owner_id": "user_uuid",
+    "name": "My Salon",
+    "phone": "123-456-7890",
+    "email": "salon@example.com",
+    "address": "123 Main St",
+    "city": "New York",
+    "timezone": "America/New_York"
   }'
 ```
 
@@ -221,7 +244,7 @@ curl -X POST "http://localhost:8000/api/ai/chat" \
   }'
 ```
 
-## Database Schema
+## 🗄️ Database Schema
 
 The system uses the following tables:
 - `users` - User accounts
@@ -235,29 +258,7 @@ The system uses the following tables:
 - `notifications` - Email notifications log
 - `ai_conversations` - AI conversation history
 
-## Development
-
-### Running Tests
-```bash
-pytest tests/
-```
-
-### Code Formatting
-```bash
-black app/
-flake8 app/
-```
-
-## Deployment
-
-The application is ready for deployment on:
-- **Heroku** - See `Procfile`
-- **Railway** - See `railway.json`
-- **AWS** - Dockerized and ready for ECS
-- **Google Cloud** - Ready for Cloud Run
-- **DigitalOcean** - Docker support
-
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please:
 1. Fork the repository
@@ -265,15 +266,15 @@ Contributions are welcome! Please:
 3. Make your changes
 4. Submit a pull request
 
-## License
+## 📄 License
 
 MIT License - see LICENSE file for details
 
-## Support
+## 💬 Support
 
 For issues, questions, or suggestions, please open an issue on GitHub.
 
-## Future Features
+## 🎯 Future Features
 
 - [ ] SMS notifications
 - [ ] Video call integration
